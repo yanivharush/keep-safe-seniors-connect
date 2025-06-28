@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,7 +10,7 @@ const ContactsList = () => {
   const [contacts, setContacts] = useState([
     {
       id: 1,
-      name: 'ד"ר כהן - רופא משפחה',
+      name: 'ד"ר גבריאל הרוש - רופא משפחה',
       phone: '03-1234567',
       type: 'רופא',
       notes: 'זמין בימי ב-ה, 8:00-16:00'
@@ -25,14 +24,14 @@ const ContactsList = () => {
     },
     {
       id: 3,
-      name: 'יואב - בן',
+      name: 'יניב הרוש - בן',
       phone: '050-1234567',
       type: 'משפחה',
       notes: 'איש קשר ראשי'
     },
     {
       id: 4,
-      name: 'מיכל - בת',
+      name: 'ג\'ורג\'יט הרוש - בת',
       phone: '052-7654321',
       type: 'משפחה',
       notes: 'גרה בקרבת מקום'
