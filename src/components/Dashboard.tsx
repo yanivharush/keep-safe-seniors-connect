@@ -71,7 +71,7 @@ const Dashboard = () => {
         <CardContent>
           <div className="space-y-3">
             <div className="p-3 bg-blue-50 rounded-lg">
-              <p className="text-lg font-medium">ד"ר גבריאל הרוש</p>
+              <p className="text-lg font-medium">ד"ר כהן</p>
               <p className="text-sm text-gray-600">מחר 10:00</p>
             </div>
             <div className="p-3 bg-purple-50 rounded-lg">
