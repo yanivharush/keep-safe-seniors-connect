@@ -12,6 +12,7 @@ import EmergencyButton from '@/components/EmergencyButton';
 import HealthDiary from '@/components/HealthDiary';
 import ContactsList from '@/components/ContactsList';
 import FamilyNotifications from '@/components/FamilyNotifications';
+import FontSizeControl from '@/components/FontSizeControl';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -39,10 +40,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50" dir="rtl">
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-4 py-6 max-w-7xl">
         {/* Header */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
               <div className="flex items-center gap-4 mb-2">
                 <h1 className="text-4xl font-bold text-blue-800">לבריאות</h1>
@@ -68,6 +69,11 @@ const Index = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Font Size Control */}
+        <div className="mb-6">
+          <FontSizeControl />
         </div>
 
         {/* Navigation Tabs */}

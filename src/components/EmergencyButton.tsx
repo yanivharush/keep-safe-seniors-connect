@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Phone, MapPin, Heart, User, Clock, AlertTriangle } from 'lucide-react';
+import { Phone, MapPin, Heart, User, Clock, AlertTriangle, Smartphone } from 'lucide-react';
 
 const EmergencyButton = () => {
   const [emergencyContacts] = useState([
@@ -54,6 +54,11 @@ const EmergencyButton = () => {
     // Here you would implement the actual calling functionality
   };
 
+  const handleFamilyAppAccess = () => {
+    console.log('Opening family app connection');
+    // Here you would implement the family app connection
+  };
+
   const getContactTypeColor = (type: string) => {
     switch (type) {
       case 'emergency': return 'bg-red-100 text-red-800';
@@ -73,27 +78,58 @@ const EmergencyButton = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-4xl mx-auto">
       <div className="text-center">
         <h2 className="text-2xl font-bold text-gray-800 mb-2">מצב חירום</h2>
         <p className="text-gray-600">לחץ על הכפתור האדום במקרה חירום או בחר איש קשר</p>
       </div>
 
-      {/* Main Emergency Button */}
-      <Card className="bg-gradient-to-b from-red-500 to-red-600 rounded-2xl shadow-2xl border-4 border-red-400">
-        <CardContent className="p-8">
-          <div className="text-center">
-            <Button 
-              className="w-32 h-32 rounded-full bg-red-600 hover:bg-red-700 text-white text-2xl font-bold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
-              onClick={() => handleEmergencyCall('101', 'מד"א')}
+      {/* Main Emergency Button - Fixed Container */}
+      <div className="flex justify-center">
+        <Card className="bg-gradient-to-b from-red-500 to-red-600 rounded-2xl shadow-2xl border-4 border-red-400 w-full max-w-md">
+          <CardContent className="p-8">
+            <div className="text-center">
+              <Button 
+                className="w-32 h-32 rounded-full bg-red-600 hover:bg-red-700 text-white text-2xl font-bold shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 mx-auto"
+                onClick={() => handleEmergencyCall('101', 'מד"א')}
+              >
+                <div className="flex flex-col items-center">
+                  <Phone className="h-12 w-12 mb-2" />
+                  <span>SOS</span>
+                </div>
+              </Button>
+              <p className="text-white text-xl font-bold mt-4">חירום - 101</p>
+              <p className="text-red-100 mt-2">לחיצה תחייג ותשלח מיקום</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Family App Connection */}
+      <Card className="bg-gradient-to-l from-blue-50 to-purple-50 rounded-2xl shadow-lg border-r-4 border-blue-500">
+        <CardHeader>
+          <CardTitle className="text-xl text-gray-800 flex items-center gap-2">
+            <Smartphone className="h-6 w-6 text-blue-600" />
+            קישור לאפליקציית המשפחה
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-lg font-medium text-gray-800 mb-2">
+                אפשר לבני המשפחה לעקוב אחר הבריאות שלך
+              </p>
+              <p className="text-gray-600">
+                המשפחה יכולה לראות את הנתונים ולהפעיל תכונות בשעת חירום
+              </p>
+            </div>
+            <Button
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl"
+              onClick={handleFamilyAppAccess}
             >
-              <div className="flex flex-col items-center">
-                <Phone className="h-12 w-12 mb-2" />
-                <span>SOS</span>
-              </div>
+              <Smartphone className="h-5 w-5 ml-2" />
+              פתח קישור
             </Button>
-            <p className="text-white text-xl font-bold mt-4">חירום - 101</p>
-            <p className="text-red-100 mt-2">לחיצה תחייג ותשלח מיקום</p>
           </div>
         </CardContent>
       </Card>
@@ -127,7 +163,7 @@ const EmergencyButton = () => {
           <div className="space-y-3">
             {emergencyContacts.map((contact) => (
               <div key={contact.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 flex-1">
                   <div className="flex flex-col">
                     <span className="text-lg font-medium text-gray-800">{contact.name}</span>
                     <span className="text-sm text-gray-600">{contact.phone}</span>
@@ -186,7 +222,7 @@ const EmergencyButton = () => {
       <Card className="bg-yellow-50 rounded-2xl shadow-lg border-r-4 border-yellow-400">
         <CardContent className="p-6">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="h-6 w-6 text-yellow-600 mt-1" />
+            <AlertTriangle className="h-6 w-6 text-yellow-600 mt-1 flex-shrink-0" />
             <div>
               <h3 className="text-lg font-bold text-gray-800 mb-2">הוראות חירום</h3>
               <ul className="space-y-2 text-gray-700">
