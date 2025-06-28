@@ -49,7 +49,7 @@ const Index = () => {
                 <h1 className="text-4xl font-bold text-blue-800">לבריאות</h1>
                 <span className="text-2xl text-gray-500">Lebriut</span>
               </div>
-              <p className="text-xl text-gray-600 mb-1">שלום, רות!</p>
+              <p className="text-xl text-gray-600 mb-1">שלום, גבריאל הרוש!</p>
               <p className="text-lg text-gray-500">המרכז הרפואי האישי שלך</p>
             </div>
             <div className="flex items-center space-x-4 space-x-reverse">
