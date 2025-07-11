@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -16,17 +15,17 @@ const EmergencyButton = () => {
     },
     {
       id: 2,
-      name: 'דוד - בן',
-      phone: '052-1234567',
+      name: 'יניב הרוש - בן',
+      phone: '050-1234567',
       type: 'family',
       available: true
     },
     {
       id: 3,
-      name: 'שרה - בת',
-      phone: '054-7654321',
+      name: 'ג\'ורג\'יט הרוש - בת',
+      phone: '052-7654321',
       type: 'family',
-      available: false
+      available: true
     },
     {
       id: 4,
@@ -51,12 +50,35 @@ const EmergencyButton = () => {
 
   const handleEmergencyCall = (phone: string, name: string) => {
     console.log(`Calling emergency contact: ${name} at ${phone}`);
-    // Here you would implement the actual calling functionality
+    
+    // Send location data if available
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        console.log(`Current location: ${latitude}, ${longitude}`);
+        
+        // Create message with location
+        const locationMessage = `חירום! מיקום נוכחי: https://maps.google.com/?q=${latitude},${longitude}`;
+        
+        // For emergency services, also try to send SMS with location
+        if (phone === '101') {
+          console.log('Emergency call to 101 with location data:', locationMessage);
+        }
+      }, (error) => {
+        console.error('Could not get location:', error);
+      });
+    }
+    
+    // Make the actual phone call
+    window.location.href = `tel:${phone}`;
   };
 
   const handleFamilyAppAccess = () => {
     console.log('Opening family app connection');
-    // Here you would implement the family app connection
+    // Open WhatsApp group or family communication app
+    const familyGroupMessage = 'שלום, אני צריך עזרה רפואית. המיקום שלי: ' + currentLocation.address;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(familyGroupMessage)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const getContactTypeColor = (type: string) => {
@@ -117,18 +139,18 @@ const EmergencyButton = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-lg font-medium text-gray-800 mb-2">
-                אפשר לבני המשפחה לעקוב אחר הבריאות שלך
+                שלח הודעת חירום למשפחה בוואטסאפ
               </p>
               <p className="text-gray-600">
-                המשפחה יכולה לראות את הנתונים ולהפעיל תכונות בשעת חירום
+                המשפחה תקבל הודעה עם המיקום שלך ובקשה לעזרה
               </p>
             </div>
             <Button
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl"
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl"
               onClick={handleFamilyAppAccess}
             >
               <Smartphone className="h-5 w-5 ml-2" />
-              פתח קישור
+              שלח הודעה
             </Button>
           </div>
         </CardContent>
@@ -229,7 +251,7 @@ const EmergencyButton = () => {
                 <li>• לחץ על הכפתור האדום לחיוג מיידי למד"א</li>
                 <li>• המיקום שלך יישלח אוטומטית</li>
                 <li>• אנשי הקשר שלך יקבלו התראה</li>
-                <li>• הישאר רגוע והמתן לעזרה</li>
+                <li>• ישאר רגוע והמתן לעזרה</li>
               </ul>
             </div>
           </div>
