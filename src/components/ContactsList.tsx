@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -24,27 +25,34 @@ const ContactsList = () => {
     },
     {
       id: 3,
+      name: 'מרכז רפואי סורוקה',
+      phone: '08-6400111',
+      type: 'בית חולים',
+      notes: 'בית החולים הקרוב ביותר - מחלקת חירום זמינה 24/7'
+    },
+    {
+      id: 4,
       name: 'יניב הרוש - בן',
       phone: '0506244601',
       type: 'משפחה',
       notes: 'איש קשר ראשי - זמין תמיד'
     },
     {
-      id: 4,
+      id: 5,
       name: 'ג\'ורג\'יט הרוש - אשה',
       phone: '0506763577',
       type: 'משפחה',
       notes: 'גרה במקום - זמינה תמיד'
     },
     {
-      id: 5,
+      id: 6,
       name: 'מד"א מוקד חירום',
       phone: '101',
       type: 'חירום',
       notes: 'שירותי חירום רפואיים - זמין 24/7'
     },
     {
-      id: 6,
+      id: 7,
       name: 'משטרה',
       phone: '100',
       type: 'חירום',

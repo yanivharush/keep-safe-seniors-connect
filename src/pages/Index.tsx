@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,6 +12,7 @@ import HealthDiary from '@/components/HealthDiary';
 import ContactsList from '@/components/ContactsList';
 import FamilyNotifications from '@/components/FamilyNotifications';
 import FontSizeControl from '@/components/FontSizeControl';
+import NotificationCenter from '@/components/NotificationCenter';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -60,10 +60,7 @@ const Index = () => {
                 <Shield className="h-8 w-8 ml-2" />
                 חירום
               </Button>
-              <div className="relative">
-                <Bell className="h-8 w-8 text-blue-600" />
-                <Badge className="absolute -top-2 -right-2 bg-red-500 text-white text-xs">3</Badge>
-              </div>
+              <NotificationCenter />
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
                 <User className="h-8 w-8 text-blue-600" />
               </div>
