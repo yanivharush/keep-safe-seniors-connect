@@ -16,14 +16,14 @@ const EmergencyButton = () => {
     {
       id: 2,
       name: 'יניב הרוש - בן',
-      phone: '050-1234567',
+      phone: '0506244601',
       type: 'family',
       available: true
     },
     {
       id: 3,
-      name: 'ג\'ורג\'יט הרוש - בת',
-      phone: '052-7654321',
+      name: 'ג\'ורג\'יט הרוש - אשה',
+      phone: '0506763577',
       type: 'family',
       available: true
     },
@@ -37,8 +37,8 @@ const EmergencyButton = () => {
   ]);
 
   const [currentLocation] = useState({
-    address: 'רח׳ הרצל 25, תל אביב',
-    coordinates: '32.0853° N, 34.7818° E'
+    address: 'אבשלום 40/1, באר שבע',
+    coordinates: '31.2518° N, 34.7915° E'
   });
 
   const [lastEmergency] = useState({

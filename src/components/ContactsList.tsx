@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -26,16 +25,16 @@ const ContactsList = () => {
     {
       id: 3,
       name: 'יניב הרוש - בן',
-      phone: '050-1234567',
+      phone: '0506244601',
       type: 'משפחה',
       notes: 'איש קשר ראשי - זמין תמיד'
     },
     {
       id: 4,
-      name: 'ג\'ורג\'יט הרוש - בת',
-      phone: '052-7654321',
+      name: 'ג\'ורג\'יט הרוש - אשה',
+      phone: '0506763577',
       type: 'משפחה',
-      notes: 'גרה בקרבת מקום - זמינה בימי חול'
+      notes: 'גרה במקום - זמינה תמיד'
     },
     {
       id: 5,
@@ -82,7 +81,7 @@ const ContactsList = () => {
       whatsappPhone = '972' + whatsappPhone.substring(1);
     }
     
-    const message = `שלום ${name}, אני צריך עזרה רפואית. תוכל לעזור לי?`;
+    const message = `שלום ${name}, אני צריך עזרה רפואית. המיקום שלי: אבשלום 40/1, באר שבע. תוכל לעזור לי?`;
     const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
