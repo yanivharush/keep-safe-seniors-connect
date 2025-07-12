@@ -1,42 +1,15 @@
-
 {
-  "name": "לבריאות - מערכת ניהול בריאות",
+  "name": "לבריאות+",
   "short_name": "לבריאות",
-  "description": "המרכז הרפואי האישי שלך - מערכת ניהול בריאות למבוגרים וקשישים",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
-  "orientation": "portrait",
-  "lang": "he",
-  "dir": "rtl",
+  "background_color": "#e0f7fa",
+  "theme_color": "#e0f7fa",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
-  "categories": ["health", "medical", "lifestyle"],
-  "screenshots": [
-    {
-      "src": "/screenshot-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/screenshot-narrow.png",
-      "sizes": "720x1280",
-      "type": "image/png",
-      "form_factor": "narrow"
+      "type": "image/png"
     }
   ]
 }
